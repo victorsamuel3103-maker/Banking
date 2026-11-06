@@ -1,0 +1,145 @@
+{% if message %}
+    <p style="color: #f5a020; text-align: center; margin-bottom: 15px;">
+        {{ message }}
+    </p>
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+
+        <div class="brand">
+            <span>▥</span> Dashboard
+        </div>
+
+        <div class="intro">
+            <h2>
+                Create Your<br>
+                Own<br>
+                <span>Account</span>
+            </h2>
+
+            <p>Join us today. Better decisions start here.</p>
+        </div>
+
+        <div class="circle"></div>
+        <div class="bottom-shape"></div>
+
+        <div class="signup-note">
+            Already have an account?<br>
+            <a href="/">Log In →</a>
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+        <div class="heading">
+            <h1>Sign Up</h1>
+            <p>Create your account to get started</p>
+        </div>
+
+        <form action="/signup" method="POST">
+
+            <div class="input-box">
+                <span>👤</span>
+                <input
+                    type="text"
+                    name="fullname"
+                    placeholder="Enter your Full Name"
+                    required
+                >
+            </div>
+
+            <div class="input-box">
+                <span>✉</span>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your Email Address"
+                    required
+                >
+            </div>
+
+            <div class="input-box">
+                <span>🔒</span>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a Password"
+                    required
+                    minlength="8"
+                >
+                <button
+                    type="button"
+                    class="show-password"
+                    onclick="togglePassword()"
+                >
+                    Show
+                </button>
+            </div>
+
+            <div class="input-box">
+                <span>🔒</span>
+                <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm_password"
+                    placeholder="Confirm Your Password"
+                    required
+                    minlength="8"
+                >
+            </div>
+
+            <button class="login-btn" type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <div class="divider">
+            <span>or continue with</span>
+        </div>
+
+        <button class="google-btn" type="button">
+            <strong>G</strong>
+            Sign Up With Google
+        </button>
+
+        <div class="mobile-signup">
+            Already have an account?
+            <a href="/">Log In →</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function togglePassword() {
+    const password = document.getElementById("password");
+
+    password.type =
+        password.type === "password" ? "text" : "password";
+}
+</script>
+
+</body>
+</html>
